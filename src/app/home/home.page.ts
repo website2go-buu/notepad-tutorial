@@ -9,10 +9,10 @@ import { NotesService } from '../services/notes.service';
 })
 export class HomePage implements OnInit{
 
-  constructor(private notesServices: NotesService, private alertCtrl: AlertController, private navCtrl: NavController) {}
+  constructor(public notesService: NotesService, private alertCtrl: AlertController, private navCtrl: NavController) {}
 
   ngOnInit(){
-    this.notesServices.load();
+    this.notesService.load();
   }
 
 
@@ -33,7 +33,7 @@ export class HomePage implements OnInit{
         {
           text: 'Save',
           handler: (data) => {
-            this.notesServices.createNote(data.title);
+            this.notesService.createNote(data.title);
           }
         }
       ]
